@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-10]">
+        <source src="./video/calculator.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Optional dark overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-30 z-[-5]"></div>
+
+    <!-- Calculator -->
+    <div class="calculator w-full max-w-md z-10">
+        <!-- your calculator content remains unchanged -->
+
+        <div class="calculator w-full max-w-md">
+            <!-- Display -->
+            <div class="display p-5 flex flex-col items-end justify-end">
+                <div id="previous-operand" class="text-gray-300 text-xl mb-2 min-h-6"></div>
+                <div id="current-operand" class="text-5xl font-bold break-all"></div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="grid grid-cols-4 gap-3 p-4">
+                <!-- Row 1 -->
+                <button class="btn btn-clear font-bold py-4 rounded-xl text-xl col-span-2" onclick="clearAll()">
+                    <i class="fas fa-trash mr-2"></i>Clear
+                </button>
+                <button class="btn btn-delete font-bold py-4 rounded-xl text-xl" onclick="deleteLastChar()">
+                    <i class="fas fa-delete-left"></i>
+                </button>
+                <button class="btn btn-operator font-bold py-4 rounded-xl text-xl" onclick="appendOperator('÷')">
+                    <i class="fas fa-divide"></i>
+                </button>
+
+                <!-- Row 2 -->
+                <button class="btn btn-number font-bold py-4 rounded-xl text-xl" onclick="appendNumber('7')">7</button>
+                <button class="btn btn-number font-bold py-4 rounded-xl text-xl" onclick="appendNumber('8')">8</button>
+                <button class="btn btn-number font-bold py-4 rounded-xl text-xl" onclick="appendNumber('9')">9</button>
+                <button class="btn btn-operator font-bold py-4 rounded-xl text-xl" onclick="appendOperator('×')">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <!-- Row 3 -->
+                <button class="btn btn-number font-bold py-4 rounded-xl text-xl" onclick="appendNumber('4')">4</button>
+                <button class="btn btn-number font-bold py-4 rounded-xl text-xl" onclick="appendNumber('5')">5</button>
+                <button class="btn btn-number font-bold py-4 rounded-xl text-xl" onclick="appendNumber('6')">6</button>
+                <button class="btn btn-operator font-bold py-4 rounded-xl text-xl" onclick="appendOperator('-')">
+                    <i class="fas fa-minus"></i>
+                </button>
+
+                <!-- Row 4 -->
+                <button class="btn btn-number font-bold py-4 rounded-xl text-xl" onclick="appendNumber('1')">1</button>
+                <button class="btn btn-number font-bold py-4 rounded-xl text-xl" onclick="appendNumber('2')">2</button>
+                <button class="btn btn-number font-bold py-4 rounded-xl text-xl" onclick="appendNumber('3')">3</button>
+                <button class="btn btn-operator font-bold py-4 rounded-xl text-xl" onclick="appendOperator('+')">
+                    <i class="fas fa-plus"></i>
+                </button>
+
+                <!-- Row 5 -->
+                <button class="btn btn-number font-bold py-4 rounded-xl text-xl col-span-2"
+                    onclick="appendNumber('0')">0</button>
+                <button class="btn btn-number font-bold py-4 rounded-xl text-xl" onclick="appendDecimal()">
+                    <i class="fas fa-period"></i>
+                </button>
+                <button class="btn btn-equals font-bold py-4 rounded-xl text-xl" onclick="calculate()">
+                    <i class="fas fa-equals"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
